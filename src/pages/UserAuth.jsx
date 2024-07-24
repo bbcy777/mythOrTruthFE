@@ -1,15 +1,15 @@
 import {useState} from 'react';
 import LoginForm from '../components/userForm/LoginForm';
-import SigninForm from '../components/userForm/SigninForm';
+import SignupForm from '../components/userForm/SignupForm';
 
 const UserAuth = () => {
-    const [newUser, setNewUser] = useState(true)
+    const [newUser, setNewUser] = useState(false)
     return (
     <>
         {newUser ? (
-            <LoginForm setNewUser = {setNewUser}/>
+            <SignupForm setNewUser = {setNewUser}/>
         ):(
-            <SigninForm setNewUser = {setNewUser}/>
+            <LoginForm setNewUser = {setNewUser}/>
         )}
     </>
   )
