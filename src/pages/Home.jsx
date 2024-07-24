@@ -16,6 +16,7 @@ const Home = () => {
     const handleNextQuestion = () => {
         setShowAnswer(false);
         setQuestionIndex((prevIndex)=> prevIndex + 1);
+        console.log(questionIndex);
     };
 
     const handleSubmitAnswer =(answer) => {

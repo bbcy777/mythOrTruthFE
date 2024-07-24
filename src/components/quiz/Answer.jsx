@@ -1,5 +1,8 @@
 import React from 'react'
 
+//when show answer set to be true, render this component
+  //check if user answer match question answer
+  //button to lift handle next question
 const Answer = ({ question, userAnswer, handleNextQuestion }) => {
     const isCorrect = (userAnswer === question.answer);
   return (
