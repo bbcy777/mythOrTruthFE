@@ -19,7 +19,9 @@ const Home = () => {
     };
 
     const handleSubmitAnswer =(answer) => {
-        setUserAnswers(...userAnswers, answer);
+        const updatedAnswers = [...userAnswers];
+        updatedAnswers[questionIndex] = answer
+        setUserAnswers(updatedAnswers);
         setShowAnswer(true);
     }
 
@@ -33,7 +35,7 @@ const Home = () => {
 
   return (
     <>
-        {showAnswer?(
+        {showAnswer ? (
         <Answer 
             question = {questions[questionIndex]}
             userAnswer = {userAnswers[questionIndex]}
@@ -43,9 +45,8 @@ const Home = () => {
             question = {questions[questionIndex]}
             handleSubmitAnswer={handleSubmitAnswer}/>
         )}
-        
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

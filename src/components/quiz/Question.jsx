@@ -10,8 +10,8 @@ const Question = ({question, handleSubmitAnswer}) => {
   return (
     <div className='question'>
         <h2>{question.question}</h2>
-        <button className='answerBtn' onClick={handleSubmit(true)}>True</button>
-        <button className='answerBtn' onClick={handleSubmit(false)}>False</button>
+        <button className='answerBtn' onClick={() => handleSubmit(true)}>True</button>
+        <button className='answerBtn' onClick={() => handleSubmit(false)}>False</button>
     </div>
   )
 }

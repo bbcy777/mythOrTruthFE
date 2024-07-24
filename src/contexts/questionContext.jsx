@@ -7,7 +7,7 @@ const QuestionProvider = ({children}) => {
     const [questions, setQuestions] = useState([]);
     const [userAnswers, setUserAnswers] = useState([]);
 
-    //use useEffect to fetch 10 random questions, and set them to questions arrary
+    //useEffect to fetch 10 random questions, and set them to questions arrary
     useEffect(()=>{
         const fetchQuestions = async() => {
             try {
@@ -28,7 +28,7 @@ const QuestionProvider = ({children}) => {
         }}>
         {children}
     </QuestionContext.Provider>
-  )
-}
+  );
+};
 
-export default QuestionProvider
+export default QuestionProvider;
