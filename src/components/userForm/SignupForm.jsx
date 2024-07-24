@@ -15,14 +15,14 @@ const SignupForm = ({ setNewUser }) => {
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: [e.target.value], 
+      [e.target.name]: e.target.value, 
     });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      if(password !== password2) {
+      if(formData.password !== formData.password2) {
         throw 'Password Do Not Match';
       } else {
         await signUp(formData);
@@ -60,7 +60,7 @@ const SignupForm = ({ setNewUser }) => {
         <input
           type='password'
           id='password1'
-          name='password1'
+          name='password'
           placeholder='Password'
           minLength={6}
           onChange={handleChange}
