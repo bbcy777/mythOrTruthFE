@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Answer = ({ question, userAnswer, handNextQuestion }) => {
+const Answer = ({ question, userAnswer, handleNextQuestion }) => {
     const isCorrect = (userAnswer === question.answer);
   return (
     <div>
@@ -11,7 +11,7 @@ const Answer = ({ question, userAnswer, handNextQuestion }) => {
             <h3>No...</h3>
         )}
         <p>{question.idea}</p>
-        <button onClick={handNextQuestion}>Next Question</button>
+        <button onClick={handleNextQuestion}>Next Question</button>
     </div>
   )
 }
