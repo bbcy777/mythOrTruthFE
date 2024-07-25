@@ -1,8 +1,11 @@
 import React from 'react'
+import AddQuestionForm from '../components/editQuestion/AddQuestionForm'
 
 const EditQuestions = () => {
   return (
-    <div>EditQuestions</div>
+    <div>
+      <AddQuestionForm />
+    </div>
   )
 }
 
