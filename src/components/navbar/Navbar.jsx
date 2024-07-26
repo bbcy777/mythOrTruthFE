@@ -7,7 +7,7 @@ const Navbar = () => {
       <Link to='/'>
         <div className={styles.navhome}>
           <img src={"/book.png"} alt="" />
-          <p>Myth or Truth</p>
+          <p>Truth or Myth</p>
         </div>      
       </Link>
       <ul id={styles.navlink}>
