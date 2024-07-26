@@ -88,10 +88,16 @@ button:focus-visible {
  }
  .forms input{
   margin-bottom: 1rem;
+  margin-left: auto;
  }
 
  .forms button{
   padding: .3rem .8rem;
   margin-left: 1rem;
  }
+
+ .form-group {
+  display: flex;
+ }
+
 

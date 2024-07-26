@@ -30,25 +30,27 @@ const LoginForm = ({ setNewUser }) => {
     <div className='forms'>
       <h3>Sign In</h3>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="email">Email: </label>
-        <input
-          type='email'
-          id='email'
-          name='email'
-          placeholder='Email'
-          onChange={handleChange}
-        />
-        <br />
-        <label htmlFor="password1">Password: </label>
-        <input
-          type='password'
-          id='password'
-          name='password'
-          placeholder='Password'
-          minLength={6}
-          onChange={handleChange}
-        />
-        <br />
+        <div className='form-group'>
+          <label htmlFor="email">Email:</label>
+          <input
+            type='email'
+            id='email'
+            name='email'
+            placeholder='Email'
+            onChange={handleChange}
+          />
+        </div>
+        <div className='form-group'>
+          <label htmlFor="password1">Password: </label>
+          <input
+            type='password'
+            id='password'
+            name='password'
+            placeholder='Password'
+            minLength={6}
+            onChange={handleChange}
+          />
+        </div>
         <button type='submit' onSubmit={handleSubmit}>Log In</button>
       </form>
       <p>

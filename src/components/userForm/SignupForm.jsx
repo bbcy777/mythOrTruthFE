@@ -40,6 +40,7 @@ const SignupForm = ({ setNewUser }) => {
     <div className='forms'>
       <h3>Sign Up</h3>
       <form onSubmit={handleSubmit}>
+      <div className='form-group'>
         <label htmlFor="userName">User Name: </label>
         <input
           type='text'
@@ -48,7 +49,8 @@ const SignupForm = ({ setNewUser }) => {
           placeholder='user name'
           onChange={handleChange}
         />
-        <br />
+      </div>
+      <div className='form-group'>
         <label htmlFor="email">Email: </label>
         <input
           type='email'
@@ -57,7 +59,8 @@ const SignupForm = ({ setNewUser }) => {
           placeholder='Email'
           onChange={handleChange}
         />
-        <br />
+      </div>
+      <div className='form-group'>
         <label htmlFor="password1">Password: </label>
         <input
           type='password'
@@ -67,7 +70,8 @@ const SignupForm = ({ setNewUser }) => {
           minLength={6}
           onChange={handleChange}
         />
-        <br />
+      </div>
+      <div className='form-group'>
         <label htmlFor="password2">Password: </label>
         <input
           type='password'
@@ -77,9 +81,9 @@ const SignupForm = ({ setNewUser }) => {
           minLength={6}
           onChange={handleChange}
         />
-        <br />
-        <button type='submit' onSubmit={handleSubmit}>Create Account</button>
-      </form>
+      </div>
+      <button type='submit' onSubmit={handleSubmit}>Create Account</button>
+    </form>
       <p>
         Already have an account? <button onClick={handleClick}>Sign In</button>
       </p>
