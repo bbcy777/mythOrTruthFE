@@ -1,0 +1,29 @@
+.navbar {
+    display: flex;
+    background-color: rgba(20, 20, 29, 50%);
+    top: 0;
+    right: 0;
+    left: 0;
+    position: fixed;
+}
+
+.navhome {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+.navbar img {
+    width: 2.5rem;
+    height: 2.3rem;
+    margin: 0 1rem;
+}
+
+#navlink {
+    display: flex;
+    margin-left: auto;
+}
+.navlink {
+    display: flex;
+    margin-right: 30px;
+    margin-left: auto;
+}

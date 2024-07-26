@@ -6,6 +6,7 @@ export const QuestionContext = createContext(null);
 const QuestionProvider = ({children}) => {
     const [questions, setQuestions] = useState([]);
     const [userAnswers, setUserAnswers] = useState([]);
+    const [favorite, setFavorite] = useState(0)
 
     //useEffect to fetch 10 random questions, and set them to questions arrary
     useEffect(()=>{
@@ -24,7 +25,9 @@ const QuestionProvider = ({children}) => {
     <QuestionContext.Provider value={{
         questions, setQuestions,
 
-        userAnswers, setUserAnswers
+        userAnswers, setUserAnswers,
+
+        favorite, setFavorite
         }}>
         {children}
     </QuestionContext.Provider>

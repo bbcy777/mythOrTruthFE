@@ -30,3 +30,5 @@ Components:
 <!-- - User page shows history of answered questions. User can send those questions to a friend. -->
 Future update:
 - User can save results and pause at anytime(not only shown after 10 questions)
+
+source: [icons](https://www.flaticon.com/)
