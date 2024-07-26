@@ -38,6 +38,7 @@ const LoginForm = ({ setNewUser }) => {
           placeholder='Email'
           onChange={handleChange}
         />
+        <br />
         <label htmlFor="password1">Password: </label>
         <input
           type='password'
@@ -47,6 +48,7 @@ const LoginForm = ({ setNewUser }) => {
           minLength={6}
           onChange={handleChange}
         />
+        <br />
         <button type='submit' onSubmit={handleSubmit}>Log In</button>
       </form>
       <p>

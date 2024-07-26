@@ -81,3 +81,12 @@ button:focus-visible {
  .about h2{
   text-align: center;
  }
+
+ .forms input{
+  margin-bottom: 1rem;
+ }
+
+ .forms button{
+  padding: .3rem .8rem;
+  margin-left: 1rem;
+ }

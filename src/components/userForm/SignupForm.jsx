@@ -48,6 +48,7 @@ const SignupForm = ({ setNewUser }) => {
           placeholder='user name'
           onChange={handleChange}
         />
+        <br />
         <label htmlFor="email">Email: </label>
         <input
           type='email'
@@ -56,6 +57,7 @@ const SignupForm = ({ setNewUser }) => {
           placeholder='Email'
           onChange={handleChange}
         />
+        <br />
         <label htmlFor="password1">Password: </label>
         <input
           type='password'
@@ -65,6 +67,7 @@ const SignupForm = ({ setNewUser }) => {
           minLength={6}
           onChange={handleChange}
         />
+        <br />
         <label htmlFor="password2">Password: </label>
         <input
           type='password'
@@ -74,6 +77,7 @@ const SignupForm = ({ setNewUser }) => {
           minLength={6}
           onChange={handleChange}
         />
+        <br />
         <button type='submit' onSubmit={handleSubmit}>Create Account</button>
       </form>
       <p>
