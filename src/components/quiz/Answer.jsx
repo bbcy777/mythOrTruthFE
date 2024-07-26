@@ -6,12 +6,17 @@ import React from 'react'
 const Answer = ({ question, userAnswer, handleNextQuestion }) => {
     const isCorrect = (userAnswer === question.answer);
   return (
-    <div>
+    <div className='answer'>
         <h2>{question.question}</h2>
-        {isCorrect? (
-            <h3>Yes! You are correct!</h3>
+        {isCorrect? (              
+              <h3>
+                <img src={"/confetti.png"} alt="cheer confetti" />Yes! You are correct!
+              </h3>
         ) : (
-            <h3>No...</h3>
+            <h3>
+              <img src={"/no.png"} alt="no sign" />
+              No...
+            </h3>
         )}
         <p>{question.idea}</p>
         <button onClick={handleNextQuestion}>Next Question</button>

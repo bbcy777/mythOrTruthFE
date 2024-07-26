@@ -1,0 +1,17 @@
+.answerBtn {
+    margin: 1rem;
+}
+.answer img{
+    width: 50px;
+    margin-right: 2rem;
+    animation: grow .5s forwards;
+}
+
+@keyframes grow {
+    from {
+        scale: 0;
+    }
+    to {
+        scale: 1.5;
+    }
+}

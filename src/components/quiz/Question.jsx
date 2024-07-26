@@ -1,4 +1,5 @@
 import React from 'react';
+import './question.css'
 
 //Display current question
     //when answer button is clicked, lift answer through handleSubmitAnswer

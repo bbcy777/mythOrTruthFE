@@ -1,6 +1,6 @@
 import {useContext} from 'react';
 import { QuestionContext } from '../../contexts/questionContext';
-
+import './result.css'
 
 //show user a result page with all questions take and answers
 const Result = () => {
@@ -19,16 +19,23 @@ const Result = () => {
   console.log(score);
 
   return (
-    <div>
+    <div className='result'>
       <h2>You got {score} correct out of 10 questions!</h2>
       <ul>
         {questions.map((question,index)=>(
           <li key={index}>
-            <p>{question.question}</p>
-            <p>Your answer: {userAnswers[index]? 'True' : 'False'}</p>
-            <p>Correct answer: {question.answer? 'True' : 'False'}</p>
+            <p>
+              {userAnswers[index]===question.answer && <img src={'/correct.png'} alt='check image' />}
+              {userAnswers[index]!==question.answer && <img src={'/wrong.png'} style={{ width: '25px'}} alt='no image' />}
+              {question.question}
+            </p>
+            <div>
+              Correct answer: {question.answer? 'True' : 'False'}
+              {/* <p>Your answer: {userAnswers[index]? 'True' : 'False'}</p> */}
+      
+            </div>
             {question.source && 
-              <p>Source: <a href={question.source} target='_black' rel='noopenr noreferrer'>{question.source}</a></p>}
+              <div>Source: <a href={question.source} target='_black' rel='noopenr noreferrer'>{question.source}</a></div>}
           </li>
         ))}
       </ul>
