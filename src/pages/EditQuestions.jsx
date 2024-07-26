@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react'
 import axios from 'axios'
 import AddQuestionForm from '../components/editQuestion/AddQuestionForm'
+import EditQuestionForm from '../components/editQuestion/EditQuestionForm'
 
 const EditQuestions = () => {
   //use state for all questions
@@ -20,6 +21,13 @@ const EditQuestions = () => {
 
   return (
     <div>
+      <ul>
+        {allQuestions.map((el)=>(
+          <li key={el.id} className='edit-question'>
+            <EditQuestionForm question={el}/>
+          </li>
+        ))}
+      </ul>
       <AddQuestionForm />
     </div>
   )

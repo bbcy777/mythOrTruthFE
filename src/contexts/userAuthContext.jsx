@@ -17,8 +17,9 @@ const UserAuthContext = ({ children }) => {
                 url: 'http://localhost:3000/user/login',
                 data: formData
             });
-
+        
             setCookies('token', res.data.token);
+
         } catch (err) {
             console.error(err);
         }
