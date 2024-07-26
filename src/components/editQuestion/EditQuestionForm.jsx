@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import './edit.css'
 
 //Once user click on the question title, div expand to show edit option
@@ -6,13 +6,39 @@ const EditQuestionForm = ({question}) => {
 
   const [expand, setExpand] = useState(false)
   const titleRef = useRef();
+  const bodyRef = useRef();
 
 //   const title = document.querySelector(".title")
-  const handleClick = () => {
-    setExpand(true);
+  const toggleExpand = () => {
+    console.log("before:", expand);
+    setExpand((preExpand)=>{
+        console.log('Toggling expand state to:', !preExpand);
+        return !preExpand;
+    });
+
     console.log(titleRef.current);
-    titleRef.current.classList.add('show');
   }
+
+  const handleOutsideClick = (e) => {
+    if(titleRef.current.classList === 'edit'){
+        setExpand(false);
+        console.log('clicked outsite, collasp');
+    }
+        
+  }
+
+  
+ 
+
+  useEffect(()=>{
+    if(expand){
+        titleRef.current.classList.add('show');
+        console.log('Class "show" added');
+    } else {
+        titleRef.current.classList.remove('show');
+        console.log('Class "show" removed');
+    }
+  },[expand])
 
   //set form state to update question
   const [formData, setFormData] = useState({
@@ -38,8 +64,8 @@ const EditQuestionForm = ({question}) => {
 
   const handleDelete = () => {}
   return (
-    <div>
-        <div className='title' onClick={handleClick}>Title: {question.question}  Answer: {question.answer? 'True':'False'}</div>
+    <div onClick={handleOutsideClick} ref={bodyRef}>
+        <div className='title' onClick={toggleExpand}>Title: {question.question}  Answer: {question.answer? 'True':'False'}</div>
         <div  ref={titleRef} className='edit'>
             <div>{question.idea}<button onClick={handleChange}>Edit</button></div>
             <div>{question.source?(<button>Edit</button>):(<button>Add Source</button>)}</div>

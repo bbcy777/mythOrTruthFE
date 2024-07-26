@@ -5,5 +5,9 @@
 }
 
 .edit.show {
-    height: 40px;
+    height: auto;
+}
+
+.title {
+    background-color: rgba(27, 28, 29, 80%);
 }
