@@ -24,6 +24,7 @@ const Dashboard = () => {
         getUsername()
     },[])
 
+    console.log(username)
   return (
     <div>
         <h3>Welcome {username.userName}</h3>

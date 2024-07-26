@@ -19,10 +19,7 @@ const EditQuestions = () => {
     }
     fetchAll()
   },[])
-  const [expand, setExpand] = useState()
-  function handleToggle() {
 
-  }
 
   return (
     <div>
@@ -30,7 +27,7 @@ const EditQuestions = () => {
       <ul>
         {allQuestions.map((el)=>(
           <li key={el._id} className='edit-question'>
-            <EditQuestionForm question={el} open={setOpen}/>
+            <EditQuestionForm question={el}/>
           </li>
         ))}
       </ul>
