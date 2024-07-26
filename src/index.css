@@ -82,6 +82,10 @@ button:focus-visible {
   text-align: center;
  }
 
+ .about h3{
+  color: #747bff;
+  text-align: center;
+ }
  .forms input{
   margin-bottom: 1rem;
  }

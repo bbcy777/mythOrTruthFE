@@ -18,3 +18,8 @@
     text-align: left;
     list-style: none;
 }
+
+.result p{
+    font-weight: 600;
+    font-size: large;
+}

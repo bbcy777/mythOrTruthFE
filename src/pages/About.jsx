@@ -27,9 +27,9 @@ const About = () => {
             <li><strong>Personalized Habit List: </strong>A convenient way to save and manage the sustainable practices you want to adopt.</li>
             <li><strong>Community Engagement: </strong>Join a community of like-minded individuals who are passionate about making a difference.</li>
         </ul>
-        <h2>Our Story</h2>
+        <h3>Our Story</h3>
         <p>The idea for Myth or Truth was born out of a desire to create a meaningful impact through education and technology. With a background in e-commerce merchandising, customer service, and full-stack software engineering, our team combines diverse expertise to bring this project to life. We are dedicated to providing an enriching experience that promotes sustainability and environmental awareness.</p>
-        <h2>Join Us</h2>
+        <h3>Join Us</h3>
         <p>Ready to test your knowledge and make a positive change? Start playing Myth or Truth today and become a part of the movement towards a greener future. Together, we can dispel myths, spread truths, and create a more sustainable world.</p>
     </div>
   )
