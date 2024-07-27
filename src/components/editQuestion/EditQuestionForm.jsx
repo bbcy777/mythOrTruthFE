@@ -79,7 +79,7 @@ const EditQuestionForm = ({question, onDelete}) => {
                 <input 
                     type="radio" 
                     onChange={handleChange} 
-                    className='radio' 
+                    id='radioT' 
                     value='true' 
                     name='answer' 
                     checked={formData.answer === true}
@@ -88,15 +88,14 @@ const EditQuestionForm = ({question, onDelete}) => {
                 <input 
                     type="radio" 
                     onChange={handleChange} 
-                    className='radio' 
+                    id='radioF' 
                     value='false'
                     name='answer' 
                     checked={formData.answer === false}
                     />
                 <br />
                 <label htmlFor="fact">Fact: </label> 
-                <input 
-                    type="text" 
+                <textarea
                     onChange={handleChange}
                     name='idea'
                     placeholder={question.idea}

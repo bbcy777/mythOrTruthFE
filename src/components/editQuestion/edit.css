@@ -1,6 +1,6 @@
 .edit {
     height: 0;
-    transition: height 1s;
+    transition: height 1s ease-in-out;
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -21,15 +21,36 @@
 .edit button {
     padding: .3rem .5rem;
     margin: .3rem;
+    margin-left: 5rem;
+    color: antiquewhite;
+    background-color: rgba(70, 17, 120, 80%);
 }
 
+.edit label {
+    margin-right: 5rem;
+}
 .edit input {
-    /* width: 300px; */
+    width: 300px;
     padding: .3rem;
     margin: .3rem;
     border-radius: 4px;
+    background-color: rgb(59, 58, 58);
 }
 
-.edit input:focus {
-    border-color: blueviolet;
+.edit textarea {
+    width: 300px;
+    height: 25px;
+    margin-left: 2rem;
+}
+
+.edit textarea:focus {
+    height: 100px;
+}
+
+#radioT, #radioF {
+    margin-right: 2rem;
+    margin-left: .5rem;
+    width: 1rem;
+    /* margin: .1rem; */
+    background-color: blueviolet;
 }

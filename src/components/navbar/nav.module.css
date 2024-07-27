@@ -27,3 +27,9 @@
     margin-right: 30px;
     margin-left: auto;
 }
+
+#navlink button{
+    padding: 0px;
+    margin-left: auto;
+    color: #646cff;
+}
