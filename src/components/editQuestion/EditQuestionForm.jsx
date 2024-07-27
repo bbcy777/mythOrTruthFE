@@ -3,17 +3,13 @@ import './edit.css'
 import axios from 'axios';
 
 //Once user click on the question title, div expand to show edit option
-const EditQuestionForm = ({question}) => {
+const EditQuestionForm = ({question, onDelete}) => {
     //to toggle expand show class, used useState, useEffect and useRef
   const [expand, setExpand] = useState(false)
   const titleRef = useRef();
     // onClick change the expand state
   const toggleExpand = () => {
-    console.log("before:", expand);
-    setExpand((preExpand)=>{
-        console.log('Toggling expand state to:', !preExpand);
-        return !preExpand;
-    });
+    setExpand((preExpand)=> !preExpand);
   }
   //if expand state is true, add class 'show', else remove the class 'show'
   useEffect(()=>{
@@ -24,7 +20,7 @@ const EditQuestionForm = ({question}) => {
     }
   },[expand])
 
-  //set form state to update question
+  //set form state to update question (put route)
   const [formData, setFormData] = useState({
     question:'',
     answer:null,
@@ -41,16 +37,15 @@ const EditQuestionForm = ({question}) => {
     }));
   }
 
-
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    editQuestion();
+  const filterEmptyValue = (data) => {
+    return Object.fromEntries(Object.entries(data).filter(([key, value]) => value !== '' && value !== null && value !== undefined));
   }
+
   const editQuestion = async () => {
-    console.log(formData);
+    // console.log(formData);
+    const filteredForm = filterEmptyValue(formData)
     try {
-        await axios.put(`http://localhost:3000/questions/${question._id}`, formData)
+        await axios.put(`http://localhost:3000/questions/${question._id}`, filteredForm)
         console.log(`http://localhost:3000/questions/${question._id}`);
     } catch (err) {
         if (err.response) {
@@ -64,19 +59,12 @@ const EditQuestionForm = ({question}) => {
     }
   }
 
-  const deleteQuestion = async () => {
-    try {
-        await axios.delete(`http://localhost:3000/questions/${question._id}`)
-    } catch (err) {
-        console.log(err)
-    }
-  }
 
   return (
     <div>
         <div className='title' onClick={toggleExpand}>Title: {question.question}  Answer: {question.answer? 'True':'False'}</div>
         <div  ref={titleRef} className='edit'>
-            <form autoComplete='off' onSubmit={handleSubmit}>
+            <form autoComplete='off' onSubmit={editQuestion}>
                 <label htmlFor="question">Question: </label>
                 <input 
                     type="text" 
@@ -137,7 +125,7 @@ const EditQuestionForm = ({question}) => {
                 </select>
                 <br />
                 <button type='submit'>Save</button>
-                <button onClick={deleteQuestion}>Delete</button>
+                <button onClick={()=>onDelete(question._id)}>Delete</button>
             </form>
         </div>
     </div>

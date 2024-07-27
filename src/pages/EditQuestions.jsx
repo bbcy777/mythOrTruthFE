@@ -9,28 +9,37 @@ const EditQuestions = () => {
   const [allQuestions, setAllQuestions] = useState([])
   //use effect to get all questions for edit
   useEffect(()=>{
-    const fetchAll = async ()=> {
-      try {
-        let res = await axios.get('http://localhost:3000/questions')
-        setAllQuestions(res.data)
-      } catch (err) {
-        console.error(err)
-      }
-    }
     fetchAll()
   },[])
 
+  const fetchAll = async ()=> {
+    try {
+      let res = await axios.get('http://localhost:3000/questions')
+      setAllQuestions(res.data)
+    } catch (err) {
+      console.error(err)
+    }
+  }
 
+  const handleDelete = async(id) => {
+      //question delete by id route 
+    try {
+        await axios.delete(`http://localhost:3000/questions/${id}`);
+        fetchAll();
+    } catch (err) {
+        console.log(err)
+    }
+  }
   return (
     <div>
       <Dashboard />
-      <ul>
+      <ol>
         {allQuestions.map((el)=>(
           <li key={el._id} className='edit-question'>
-            <EditQuestionForm question={el}/>
+            <EditQuestionForm question={el} onDelete={handleDelete}/>
           </li>
         ))}
-      </ul>
+      </ol>
       <AddQuestionForm />
     </div>
   )
