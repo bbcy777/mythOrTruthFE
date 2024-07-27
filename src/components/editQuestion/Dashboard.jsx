@@ -7,7 +7,7 @@ import { useAuth } from '../../contexts/userAuthContext';
 const Dashboard = () => {
     const [username, setUsername] = useState()
     const {cookies} = useAuth()
-    console.log(cookies);
+    // console.log(cookies);
     useEffect(()=>{
         const getUsername = async(req, res) => {
             try {
@@ -24,10 +24,10 @@ const Dashboard = () => {
         getUsername()
     },[])
 
-    console.log(username)
+    // console.log(username)
   return (
     <div>
-        <h3>Welcome {username.userName}</h3>
+        {/* <h3>Welcome {username.userName}</h3> */}
     </div>
   )
 }
