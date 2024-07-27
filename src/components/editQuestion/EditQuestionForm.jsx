@@ -20,13 +20,13 @@ const EditQuestionForm = ({question, onDelete}) => {
     }
   },[expand])
 
-  //set form state to update question (put route)
+  //set form state to update question (put route) changed initial state value, so don't need to 
   const [formData, setFormData] = useState({
-    question:'',
-    answer:null,
-    idea: '',
-    source: '',
-    category: ''
+    question:question.question,
+    answer:question.answer,
+    idea: question.idea,
+    source: question.source,
+    category: question.category
   })
 
   const handleChange = (e) => {
@@ -37,15 +37,15 @@ const EditQuestionForm = ({question, onDelete}) => {
     }));
   }
 
-  const filterEmptyValue = (data) => {
-    return Object.fromEntries(Object.entries(data).filter(([key, value]) => value !== '' && value !== null && value !== undefined));
-  }
+//   const filterEmptyValue = (data) => {
+//     return Object.fromEntries(Object.entries(data).filter(([key, value]) => value !== '' && value !== null && value !== undefined));
+//   }
 
   const editQuestion = async () => {
-    // console.log(formData);
-    const filteredForm = filterEmptyValue(formData)
+ 
+    // const filteredForm = filterEmptyValue(formData)
     try {
-        await axios.put(`http://localhost:3000/questions/${question._id}`, filteredForm)
+        await axios.put(`http://localhost:3000/questions/${question._id}`, formData)
         console.log(`http://localhost:3000/questions/${question._id}`);
     } catch (err) {
         if (err.response) {
@@ -70,7 +70,7 @@ const EditQuestionForm = ({question, onDelete}) => {
                     type="text" 
                     onChange={handleChange}
                     name='question'
-                    placeholder={question.question}
+                    // placeholder={question.question}
                     value={formData.question}
                 />
                 <br />

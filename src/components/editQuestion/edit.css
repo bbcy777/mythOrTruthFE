@@ -1,6 +1,6 @@
 .edit {
     height: 0;
-    transition: height 0.5s;
+    transition: height 1s;
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -9,6 +9,7 @@
 
 .edit.show {
     height: auto;
+    height: calc-size(auto);
 }
 
 .title {
@@ -20,4 +21,15 @@
 .edit button {
     padding: .3rem .5rem;
     margin: .3rem;
+}
+
+.edit input {
+    /* width: 300px; */
+    padding: .3rem;
+    margin: .3rem;
+    border-radius: 4px;
+}
+
+.edit input:focus {
+    border-color: blueviolet;
 }
