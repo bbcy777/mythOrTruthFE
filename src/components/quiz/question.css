@@ -7,6 +7,14 @@
     animation: grow .5s forwards;
 }
 
+#favorite {
+    width: 30px;
+    margin-right: auto;
+}
+
+#favorite:hover {
+    cursor: pointer;
+}
 @keyframes grow {
     from {
         scale: 0;

@@ -3,8 +3,10 @@ import React from 'react'
 //when show answer set to be true, render this component
   //check if user answer match question answer
   //button to lift handle next question
-const Answer = ({ question, userAnswer, handleNextQuestion }) => {
+const Answer = ({ question, userAnswer, handleNextQuestion, addFavorite, removeFavorite }) => {
     const isCorrect = (userAnswer === question.answer);
+
+    const userId = localStorage.getItem('userId')
   return (
     <div className='answer'>
         <h2>{question.question}</h2>
@@ -20,6 +22,7 @@ const Answer = ({ question, userAnswer, handleNextQuestion }) => {
         )}
         <p>{question.idea}</p>
         <button onClick={handleNextQuestion}>Next Question</button>
+        {userId?(<img id='favorite' src={"/star.png"} onClick={()=>addFavorite(question._id)}/>):null}
     </div>
   )
 }
