@@ -7,12 +7,16 @@
     animation: grow .5s forwards;
 }
 
-#favorite {
-    width: 30px;
-    margin-right: auto;
+.favDiv {
+    display: flex;
+    margin-left: auto;
+    align-items: end;
 }
 
-#favorite:hover {
+.favDiv img {
+    width: 30px;
+}
+.favDiv:hover {
     cursor: pointer;
 }
 @keyframes grow {

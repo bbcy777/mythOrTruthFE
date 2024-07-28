@@ -44,7 +44,8 @@ const UserAuthContext = ({ children }) => {
     //logOut Function
     const logOut = () => {
         ['token'].forEach((obj) => removeCookie(obj))
-        localStorage.removeItem('user')
+        localStorage.removeItem('userId')
+        localStorage.removeItem('username')
     };
 
     const value = useMemo(()=>({

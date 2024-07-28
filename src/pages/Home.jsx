@@ -32,12 +32,10 @@ const Home = () => {
     }
 
     if(questionIndex >= questions.length) {
-        return <Result 
-                    addFavorite = {addFavorite}
-                    removeFavorite = {removeFavorite}
-                />
+        return <Result handleFavorite= {handleFavorite}/>
     }
 
+    //Adding favorite button for logged in user
     const userId = localStorage.getItem('userId')
     const addFavorite = async (questionId) => {
         try {
@@ -54,6 +52,25 @@ const Home = () => {
         }
     }
 
+    // const [isFavorite, setIsFavorite] = useState(false)
+
+    const handleFavorite =  async(questionId) => {
+        try {
+            let res = await axios.get(`http://localhost:3000/favcart/${userId}`)
+            const favQuestions = res.data
+            let newQuestion = favQuestions.find(el => el == questionId)
+            if (newQuestion) {
+                removeFavorite(questionId)
+                setIsFavorite(true)
+            }
+            else {
+                addFavorite(questionId)
+            }
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
   return (
     <>
         {showAnswer ? (
@@ -61,8 +78,7 @@ const Home = () => {
             question = {questions[questionIndex]}
             userAnswer = {userAnswers[questionIndex]}
             handleNextQuestion={handleNextQuestion}
-            addFavorite = {addFavorite}
-            removeFavorite = {removeFavorite}/>
+            handleFavorite= {handleFavorite}/>
         ) : (
         <Question 
             question = {questions[questionIndex]}
