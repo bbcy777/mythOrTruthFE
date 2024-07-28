@@ -35,6 +35,7 @@ const UserAuthContext = ({ children }) => {
             });
 
             setCookies('token', res.data.token);
+
         } catch (err) {
             console.error(err);
         }
@@ -43,6 +44,7 @@ const UserAuthContext = ({ children }) => {
     //logOut Function
     const logOut = () => {
         ['token'].forEach((obj) => removeCookie(obj))
+        localStorage.removeItem('user')
     };
 
     const value = useMemo(()=>({

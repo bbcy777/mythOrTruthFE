@@ -3,6 +3,7 @@ import { QuestionContext } from '../contexts/questionContext';
 import Question from '../components/quiz/Question';
 import Answer from '../components/quiz/Answer';
 import Result from '../components/showResult/Result';
+import axios from 'axios';
 
 //Home Component 
     //manage the current question index
@@ -31,7 +32,26 @@ const Home = () => {
     }
 
     if(questionIndex >= questions.length) {
-        return <Result />
+        return <Result 
+                    addFavorite = {addFavorite}
+                    removeFavorite = {removeFavorite}
+                />
+    }
+
+    const userId = localStorage.getItem('userId')
+    const addFavorite = async (questionId) => {
+        try {
+            await axios.post(`http://localhost:3000/favcart/${userId}/${questionId}`)
+        } catch (error) {
+            console.error(error)
+        }
+    }
+    const removeFavorite = async (questionId) => {
+        try {
+            await axios.delete(`http://localhost:3000/favcart/${userId}/${questionId}`)
+        } catch (error) {
+            console.error(error)
+        }
     }
 
   return (
@@ -40,7 +60,9 @@ const Home = () => {
         <Answer 
             question = {questions[questionIndex]}
             userAnswer = {userAnswers[questionIndex]}
-            handleNextQuestion={handleNextQuestion}/>
+            handleNextQuestion={handleNextQuestion}
+            addFavorite = {addFavorite}
+            removeFavorite = {removeFavorite}/>
         ) : (
         <Question 
             question = {questions[questionIndex]}

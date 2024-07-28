@@ -27,7 +27,10 @@ const Navbar = () => {
             <Link to='/edit'>
               <li className={styles.navlink}>Edit</li>
             </Link>
-            <li className={styles.navlink}><button onClick={logOut}>Logout</button></li></>)
+            <Link to='/'>
+              <li className={styles.navlink}><button onClick={logOut}>Logout</button></li>
+            </Link>
+          </>)
           :
           <Link to='/login'>
           <li className={styles.navlink}>Login</li>

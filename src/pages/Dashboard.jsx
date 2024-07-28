@@ -19,13 +19,21 @@ const Dashboard = () => {
                 })
                 // console.log(res);
                 setUserInfo(res.data)
+                //add user to localStorage
+                localStorage.setItem('username', res.data.userName)
+                localStorage.setItem('userId', res.data._id)
             } catch (err) {
                 console.error(err)
             }
         }
         getUserInfo()
     },[cookies.token])
-    // console.log('username is: ', userInfo);
+
+    // const username = localStorage.getItem('username')
+    // const userId = localStorage.getItem('userId')
+    // console.log('localStorage username: ', username);
+    // console.log('localStorage userId', userId);
+    
     // fetch favorite list:
     const [favQuestions, setFavQuestions] = useState([])
 
