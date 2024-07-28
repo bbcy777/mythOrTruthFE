@@ -21,6 +21,9 @@ const Navbar = () => {
         </Link>
         {isLoggedIn?
           (<>
+            <Link to='/dashboard'>
+              <li className={styles.navlink}>Dashboard</li>
+            </Link>
             <Link to='/edit'>
               <li className={styles.navlink}>Edit</li>
             </Link>

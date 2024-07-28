@@ -20,7 +20,7 @@ const LoginForm = ({ setNewUser }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await login(formData);
-    nav('/edit');
+    nav('/dashboard');
   };
 
   const handleClick = ()=> {

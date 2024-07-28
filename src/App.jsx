@@ -5,6 +5,7 @@ import ProtectedRoutes from './components/editQuestion/ProtectedRoutes';
 import EditQuestions from './pages/EditQuestions';
 import UserAuth from './pages/UserAuth'
 import About from './pages/About';
+import Dashboard from './pages/Dashboard';
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/login' element={<UserAuth />} />
           <Route element={<ProtectedRoutes />} >
+            <Route path='/dashboard' element={<Dashboard />} />
             <Route path='/edit' element={<EditQuestions />} />
           </ Route>
         <Route path='/about' element={<About />}/>

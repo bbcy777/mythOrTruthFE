@@ -26,7 +26,7 @@ const SignupForm = ({ setNewUser }) => {
         throw 'Password Do Not Match';
       } else {
         await signUp(formData);
-        nav('/edit');
+        nav('/dashboard');
       }
     } catch (error) {
       console.error(error);

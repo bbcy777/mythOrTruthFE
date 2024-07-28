@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {useEffect, useState} from 'react';
-import { useAuth } from '../../contexts/userAuthContext';
+import { useAuth } from '../contexts/userAuthContext';
 
 //get userName and display favorite questions, and offer edit/add question option
 const Dashboard = () => {
@@ -58,25 +58,26 @@ const Dashboard = () => {
 
 
   return (
-    <div className='dashboard'>
+    <>
         <h3>Welcome {userInfo.userName}</h3>
-        <div>Take a quiz</div>
-        <div>Go to your favorite list
-            <ul>
-                {favQuestions.map(el => (
-                    <li key={el._id}>
-                        <p>{el.question}</p>
-                        <p>{el.answer?'True':'False'}</p>
-                        <p>Fact: {el.idea}</p>
-                        <p>{el.source? '{el.source}': null}</p>
-                        <p>{el.category? '{el.category}':null}</p>
-                    </li>
-                ))}
-            </ul>
+        <div className='dashboard'>
+            <div>Take a quiz</div>
+            <div>Go to your favorite list
+                <ul>
+                    {favQuestions.map(el => (
+                        <li key={el._id}>
+                            <p>{el.question}</p>
+                            <p>{el.answer?'True':'False'}</p>
+                            <p>Fact: {el.idea}</p>
+                            <p>{el.source? '{el.source}': null}</p>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+            <div>Edit a question</div>
+            <div>Add a question</div>
         </div>
-        <div>Edit a question</div>
-        <div>Add a question</div>
-    </div>
+    </>
   )
 }
 
