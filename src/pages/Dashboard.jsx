@@ -1,10 +1,10 @@
 import {react, useContext} from 'react';
-import { UserContext } from '../contexts/userContext';
+import { useUser } from '../contexts/userContext';
 
 
 //get userName and display favorite questions, and offer edit/add question option
 const Dashboard = () => {
-    const {userInfo, favQuestions } = useContext(UserContext)
+    const {userInfo, favQuestions } = useUser()
     
   return (
     <>

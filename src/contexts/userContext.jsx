@@ -2,7 +2,7 @@ import {useState, useEffect, createContext, useContext} from 'react';
 import axios from 'axios';
 import { useAuth } from './userAuthContext'; 
 
-export const UserContext = createContext(null);
+const UserContext = createContext(null);
 
 //Handle registered user info (user name, user favorite list, user add/remove favorite item)
 const UserProvider = ({children}) => {
@@ -12,7 +12,7 @@ const UserProvider = ({children}) => {
     // console.log(cookies);
     useEffect(()=>{
         if(cookies.token){
-            const getUserInfo = async(req, res) => {
+            const getUserInfo = async() => {
                 try {
                     let res = await axios ({
                         method: 'get',
@@ -42,7 +42,7 @@ const UserProvider = ({children}) => {
 
     useEffect(()=>{
         if(userInfo._id){
-            const getFavQuesitons = async (req, res) => {
+            const getFavQuesitons = async () => {
                 try {
                     let res = await axios.get(`http://localhost:3000/favcart/${userInfo._id}`)
                     let favQuestionIds = res.data
@@ -80,6 +80,7 @@ const UserProvider = ({children}) => {
                 await axios.post(`http://localhost:3000/favcart/${userInfo._id}/${questionId}`)
                 const res = await axios.get(`http://localhost:3000/questions/${questionId}`);
                 setFavQuestions([...favQuestions, res.data]);
+                console.log('After Post favQuestions', favQuestions);
             }
         } catch (error) {
             console.error(error)
