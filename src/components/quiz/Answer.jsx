@@ -17,7 +17,17 @@ const Answer = ({ question, userAnswer, handleNextQuestion }) => {
 
   return (
     <div className='answer'>
+        
         <h2>{question.question}</h2>
+        <div className='favDiv' onClick={()=>handleFavorite(question._id)}>
+          {/* {userId && isFavorite(question._id) && <img id='favorite' src={"/star.png"} alt='filled star to show item in favorite'/>}
+          {userId && isFavorite(question._id) && <img id = 'notFav' src={"/star_empty.png"} alt="hollow star to show not in favorite" />} */}
+          {(userId && isFavorite(question._id))?
+            <img id='favorite' src={"/star.png"} alt='filled star to show item in favorite'/>
+            :
+            <img id = 'notFav' src={"/star_empty.png"} alt="hollow star to show not in favorite" />
+            }
+        </div>
         {isCorrect? (              
               <h3>
                 <img src={"/confetti.png"} alt="cheer confetti" />Yes! You are correct!
@@ -28,18 +38,9 @@ const Answer = ({ question, userAnswer, handleNextQuestion }) => {
               No...
             </h3>
         )}
+
         <p>{question.idea}</p>
         <button onClick={handleNextQuestion}>Next Question</button>
-        
-        <div className='favDiv' onClick={()=>handleFavorite(question._id)}>
-          {/* {userId && isFavorite(question._id) && <img id='favorite' src={"/star.png"} alt='filled star to show item in favorite'/>}
-          {userId && isFavorite(question._id) && <img id = 'notFav' src={"/star_empty.png"} alt="hollow star to show not in favorite" />} */}
-          {(userId && isFavorite(question._id))?
-            <img id='favorite' src={"/star.png"} alt='filled star to show item in favorite'/>
-            :
-            <img id = 'notFav' src={"/star_empty.png"} alt="hollow star to show not in favorite" />
-            }
-        </div>
         
     </div>
   )

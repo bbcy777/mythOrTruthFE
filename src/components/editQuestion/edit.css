@@ -13,12 +13,13 @@
 }
 
 .title {
+    margin-top: 0.5rem;
     background-color: rgba(27, 28, 29, 80%);
     text-align: left;
     font-size: large;
 }
 
-.edit button {
+.edit button, .addForm button {
     padding: .3rem .5rem;
     margin: .3rem;
     margin-left: 5rem;
@@ -29,7 +30,7 @@
 .edit label {
     margin-right: 5rem;
 }
-.edit input {
+.edit input[type='text'] {
     width: 300px;
     padding: .3rem;
     margin: .3rem;
@@ -48,14 +49,30 @@
 }
 
 #radioT, #radioF {
-    margin-right: 2rem;
-    margin-left: .5rem;
     width: 1rem;
-    /* margin: .1rem; */
-    background-color: blueviolet;
 }
 
-.addForm {
+.edit input[type='radio'] {
+    margin: 0;
+    margin-right: 0.5rem;
+    vertical-align: middle;
+    width: 1rem;
+    padding: 0;
+}
+
+.edit label,.addForm label {
+    margin-right: 1rem;
+}
+
+.addQ {
     width: 300px;
-    
+    margin-top: 2rem;
+    text-align: left;
+    place-items: center;
+}
+
+
+.favList {
+    margin-top: 1rem;
+    list-style: square;
 }

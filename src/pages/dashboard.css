@@ -1,14 +1,14 @@
 .dashboard {
     width: 100%;
     display: grid;
-    grid-template-columns: 2fr 2fr 2fr 2fr;}
+    grid-template-columns: 2fr 4fr 4fr 2fr;}
   
   .dashlist{
     margin: 1rem;
     padding: .5rem 1rem;
     border: #f9f9f9 1px solid;
     border-radius: 5px;
-    height: 2rem;
+    height: 2.5rem;
   }
   
   .dashlist:hover {
@@ -16,7 +16,7 @@
     cursor: pointer;
   }
   
-  .dashFavList {
+.dashFavList {
     height: auto;
     height: calc-size(auto);
     display: inline;
@@ -24,13 +24,13 @@
     text-align: left;
   }
 
-  /* .addForm {
-    display: none;
-  }
-
-  .addForm.show {
+.editList {
+    margin-top: 2rem;
     height: auto;
     display: inline;
-  } */
+  } 
   
+.dashFavList {
+    margin-top: 1rem;
+}
   

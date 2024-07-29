@@ -28,14 +28,14 @@ const Dashboard = () => {
             <h3 onClick={() =>{handleActive(null)}}>Welcome {userInfo.userName}</h3>
             <div className='dashboard'>
                 <div className='dashlist' onClick={()=>{nav('/')}}>Test Your Knowledge</div>
-                <div className='dashlist' onClick={()=>{handleActive('favList')}}>Check your favorite list
-                    {activeContent == 'favList' && (<div className='favList' ><FavoriteList /></div>)}
+                <div className='dashlist' onClick={()=>{handleActive('favList')}}>See Favorite
+                    {activeContent == 'favList' && (<div id='favList' ><FavoriteList /></div>)}
                 </div>
                 <div className='dashlist' onClick={()=>{handleActive('editForm')}}>Edit a question
                     {activeContent == 'editForm' && <EditQuestions />}
                 </div>
                 <div className='dashlist' onClick={()=>{handleActive('addForm')}}>Add a question
-                    {activeContent == 'addForm' && (<div className='addForm' >
+                    {activeContent == 'addForm' && (<div className='addQ' >
                         <AddQuestionForm />
                     </div>)}
                 </div>

@@ -8,9 +8,8 @@
 }
 
 .favDiv {
-    display: flex;
-    margin-left: auto;
-    align-items: end;
+    display: block;
+    text-align: end;
 }
 
 .favDiv img {
