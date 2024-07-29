@@ -1,5 +1,6 @@
 import {useState} from 'react';
 import axios from 'axios';
+import './edit.css'
 
 const AddQuestionForm = () => {
   
@@ -32,7 +33,7 @@ const AddQuestionForm = () => {
     }
   }
   return (
-    <div>
+    <div className='addForm'>
         <h3>Add a Question</h3>
         <form autoComplete='off' onSubmit={handleSubmit}>
             <label htmlFor="question">Question: </label>

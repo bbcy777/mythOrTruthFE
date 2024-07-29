@@ -1,17 +1,20 @@
-import {react, useContext} from 'react';
+import { Link } from "react-router-dom";
 import { useUser } from '../contexts/userContext';
-
+import { useNavigate } from "react-router-dom";
 
 //get userName and display favorite questions, and offer edit/add question option
 const Dashboard = () => {
     const {userInfo, favQuestions } = useUser()
     
+    const nav = useNavigate();
   return (
     <>
         <h3>Welcome {userInfo.userName}</h3>
         <div className='dashboard'>
-            <div>Take a quiz</div>
-            <div>Go to your favorite list
+            <Link to='/'>
+                <div className='dashlist'>Test Your Knowledge</div>
+            </Link>
+            <div className='dashlist'>Check your favorite list
                 <ul>
                     {favQuestions.map(el => (
                         <li key={el._id}>
@@ -27,8 +30,9 @@ const Dashboard = () => {
                     ))}
                 </ul>
             </div>
-            <div>Edit a question</div>
-            <div>Add a question</div>
+            <div className='dashlist' onClick={()=>{nav('/edit')}}>Edit a question</div>
+            <div className='dashlist'>Add a question</div>
+            <div></div>
         </div>
     </>
   )

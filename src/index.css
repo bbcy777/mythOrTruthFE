@@ -101,7 +101,19 @@ button:focus-visible {
  }
 
 .dashboard {
+  width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr 2fr 2fr 2fr;}
+
+.dashlist{
+  margin: 1rem;
+  padding: .5rem 1rem;
+  border: #f9f9f9 1px solid;
+  border-radius: 5px;
+}
+
+.dashlist:hover {
+  background-color: #1d1329;
+  cursor: pointer;
 }
 
