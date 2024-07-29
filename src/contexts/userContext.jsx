@@ -46,7 +46,7 @@ const UserProvider = ({children}) => {
                 try {
                     let res = await axios.get(`http://localhost:3000/favcart/${userInfo._id}`)
                     let favQuestionIds = res.data
-                    console.log('favQuestionIds',favQuestionIds);
+                    // console.log('favQuestionIds',favQuestionIds);
                     const questions = await Promise.all(
                         favQuestionIds.map(async(id) =>{
                             try {
@@ -64,7 +64,7 @@ const UserProvider = ({children}) => {
                 }            
             }
             getFavQuesitons()
-            console.log('favQuestions', favQuestions);
+            // console.log('favQuestions', favQuestions);
         }
     },[userInfo._id])
 
@@ -72,22 +72,30 @@ const UserProvider = ({children}) => {
 
     const handleFavorite =  async(questionId) => {
         try {
-            if (favQuestions.some(el => el._id == questionId)) {
+            const isFavorite = favQuestions.some(el => el._id == questionId);
+            if (isFavorite) {
+                console.log('deleting favorite');
                 await axios.delete(`http://localhost:3000/favcart/${userInfo._id}/${questionId}`)
-                setFavQuestions(favQuestions.filter(el => el._id == questionId))
+                const prevList = favQuestions.filter((el)=>el._id !== questionId)
+                setFavQuestions(prevList)
             }
             else {
                 await axios.post(`http://localhost:3000/favcart/${userInfo._id}/${questionId}`)
                 const res = await axios.get(`http://localhost:3000/questions/${questionId}`);
-                setFavQuestions([...favQuestions, res.data]);
-                console.log('After Post favQuestions', favQuestions);
+                setFavQuestions(prevList => [...prevList, res.data]);
+                console.log('Adding favoite');
+                // console.log('After Post favQuestions', favQuestions);
             }
         } catch (error) {
             console.error(error)
         }
     }
+    
+    // const isFavorite = useCallback((questionId) => {return favQuestions.some(el => el._id === questionId)
+    // },[favQuestions])
 
-    const isFavorite = (questionId) => favQuestions.some(el => el._id === questionId)
+    const isFavorite =(questionId) => {return favQuestions.some(el => el._id === questionId)}
+
     return (
         <UserContext.Provider value={ {userInfo, favQuestions, handleFavorite, isFavorite }}>
             {children}
