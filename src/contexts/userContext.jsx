@@ -1,9 +1,10 @@
-import {useState, useEffect, useContext, createContext} from 'react';
+import {useState, useEffect, createContext, useContext} from 'react';
 import axios from 'axios';
 import { useAuth } from './userAuthContext'; 
 
 export const UserContext = createContext(null);
 
+//Handle registered user info (user name, user favorite list, user add/remove favorite item)
 const UserProvider = ({children}) => {
     //fetch username
     const [userInfo, setUserInfo] = useState({})
@@ -67,13 +68,34 @@ const UserProvider = ({children}) => {
         }
     },[userInfo._id])
 
+    //Managing favorite button for logged in user
 
+    const handleFavorite =  async(questionId) => {
+        try {
+            if (favQuestions.some(el => el._id == questionId)) {
+                await axios.delete(`http://localhost:3000/favcart/${userInfo._id}/${questionId}`)
+                setFavQuestions(favQuestions.filter(el => el._id == questionId))
+            }
+            else {
+                await axios.post(`http://localhost:3000/favcart/${userInfo._id}/${questionId}`)
+                const res = await axios.get(`http://localhost:3000/questions/${questionId}`);
+                setFavQuestions([...favQuestions, res.data]);
+            }
+        } catch (error) {
+            console.error(error)
+        }
+    }
 
-  return (
-    <UserContext.Provider value={ {userInfo, favQuestions }}>
-        {children}
-    </UserContext.Provider>
-  )
+    const isFavorite = (questionId) => favQuestions.some(el => el._id === questionId)
+    return (
+        <UserContext.Provider value={ {userInfo, favQuestions, handleFavorite, isFavorite }}>
+            {children}
+        </UserContext.Provider>
+    )
 }
 
 export default UserProvider
+
+export const useUser = () => {
+    return useContext(UserContext)
+}

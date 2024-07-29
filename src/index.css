@@ -100,4 +100,7 @@ button:focus-visible {
   display: flex;
  }
 
+.dashboard {
+  display: flex;
+}
 
