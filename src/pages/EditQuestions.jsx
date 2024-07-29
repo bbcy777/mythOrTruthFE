@@ -39,7 +39,6 @@ const EditQuestions = () => {
           </li>
         ))}
       </ol>
-      <AddQuestionForm />
     </div>
   )
 }

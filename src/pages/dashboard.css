@@ -1,0 +1,36 @@
+.dashboard {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr 2fr;}
+  
+  .dashlist{
+    margin: 1rem;
+    padding: .5rem 1rem;
+    border: #f9f9f9 1px solid;
+    border-radius: 5px;
+    height: 2rem;
+  }
+  
+  .dashlist:hover {
+    background-color: #1d1329;
+    cursor: pointer;
+  }
+  
+  .dashFavList {
+    height: auto;
+    height: calc-size(auto);
+    display: inline;
+    justify-content: center;
+    text-align: left;
+  }
+
+  /* .addForm {
+    display: none;
+  }
+
+  .addForm.show {
+    height: auto;
+    display: inline;
+  } */
+  
+  

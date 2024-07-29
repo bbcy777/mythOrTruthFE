@@ -32,8 +32,13 @@ const Answer = ({ question, userAnswer, handleNextQuestion }) => {
         <button onClick={handleNextQuestion}>Next Question</button>
         
         <div className='favDiv' onClick={()=>handleFavorite(question._id)}>
-          {userId && isFavorite(question._id) && <img id='favorite' src={"/star.png"} alt='filled star to show item in favorite'/>}
-          {userId && !isFavorite(question._id) && <img id = 'notFav' src={"/star_empty.png"} alt="hollow star to show not in favorite" />}
+          {/* {userId && isFavorite(question._id) && <img id='favorite' src={"/star.png"} alt='filled star to show item in favorite'/>}
+          {userId && isFavorite(question._id) && <img id = 'notFav' src={"/star_empty.png"} alt="hollow star to show not in favorite" />} */}
+          {(userId && isFavorite(question._id))?
+            <img id='favorite' src={"/star.png"} alt='filled star to show item in favorite'/>
+            :
+            <img id = 'notFav' src={"/star_empty.png"} alt="hollow star to show not in favorite" />
+            }
         </div>
         
     </div>
