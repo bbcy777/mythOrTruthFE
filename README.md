@@ -1,34 +1,39 @@
-# Myth or Truth
+# Myth or Truth Frontend
 
-A simple true of false game to test your knowledge (right now I have only a few environment, energy or health related category). 
+backend repo: https://github.com/bbcy777/mythOrTruthBE.git
 
-Upon page load, one statement will present with true and false button. Once user click a button, answer page will show if they are correct and another button for next question.
+A simple true or false game to test your knowledge (right now I have only a few environment, energy or health related category). 
+
+Upon page load, one statement will present with true and false button. Once user click a button, answer page will show if they are correct and another button for next question. Registered user can add question(s) to their favorite list in answer page.
 
 After 10 questions, result page will show all questions user answered and number they were correct.
 
-Once user log in, they can edit, delete and add new questions. 
+If user log in, they can see their favorite questions list, edit, delete and add new questions. 
 
-Need 4 Route Pages:
+4 Route Pages:
 
-- Home page: Random 10 questions are fetched when page load. Homepage shows one question at a time.
-- Result page: Once user complete those 10 questions, result page will show each question with correct answer. 
-- Login page: Once user login, they can edit questions(add, delete, update)
+- Home page: Random 10 questions are fetched when page load. Home page controls Answer/Question/Result components.
+- Login/singup form that authorize user.
+- User Dashboard: when user login, they can be route back to quiz, see favorite list, edit/delete/add questions.
+- Edit question page, before I build dashboard, all question CRUD was under this page.
+- About page.
 
 Components:
-- Navbar gives login option. User can play without logged in.
+- Navbar: normally only shows about link and option to log in. Logged in user has dashboard/edit/logout link. 
 
 - Question with True of False option.
-- Answer with explaination. 
-- Result components show user an overview of all questions and their answers
+- Answer with explaination, registered user has option to add question to favorite list. 
+- Result component shows user an overview of 10 questions they took.
 
 - user login and signup forms
 
 - edit question should be a protected route. Authorized user can edit, post, delete questions.
 
-<!-- - Login page to authroize user. -->
 
-<!-- - User page shows history of answered questions. User can send those questions to a friend. -->
 Future update:
 - User can save results and pause at anytime(not only shown after 10 questions)
+- Dashboard should show history of all questions
+- Some interaction with other user (send to a friend etc.)
+- If user is separated to be admin, need another component to flag question form to suggest edit/add
 
 source: [icons](https://www.flaticon.com/)
