@@ -13,8 +13,12 @@ If user log in, they can see their favorite questions list, edit, delete and add
 4 Route Pages:
 
 - Home page: Random 10 questions are fetched when page load. Home page controls Answer/Question/Result components.
+  ![image](https://github.com/user-attachments/assets/1674502d-9cdd-4e77-81d1-26e67887f211)
+
 - Login/singup form that authorize user.
 - User Dashboard: when user login, they can be route back to quiz, see favorite list, edit/delete/add questions.
+![image](https://github.com/user-attachments/assets/b5533db0-0582-495a-a9a2-d46f821a79d6)
+
 - Edit question page, before I build dashboard, all question CRUD was under this page.
 - About page.
 
@@ -22,7 +26,9 @@ Components:
 - Navbar: normally only shows about link and option to log in. Logged in user has dashboard/edit/logout link. 
 
 - Question with True of False option.
-- Answer with explaination, registered user has option to add question to favorite list. 
+- Answer with explaination, registered user has option to add question to favorite list.
+  ![image](https://github.com/user-attachments/assets/5d712042-96df-4b9c-9bad-c4872268f0ed)
+
 - Result component shows user an overview of 10 questions they took.
 ![image](https://github.com/user-attachments/assets/a0818253-7451-4773-80f3-a9a59cbb985e)
 
