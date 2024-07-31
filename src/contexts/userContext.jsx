@@ -16,7 +16,7 @@ const UserProvider = ({children}) => {
                 try {
                     let res = await axios ({
                         method: 'get',
-                        url: 'http://localhost:3000/user/login/',
+                        url: 'https://truthormyth.onrender.com/user/login/',
                         headers: {'x-auth-token': cookies.token}
                     })
                     // console.log(res);
@@ -44,13 +44,13 @@ const UserProvider = ({children}) => {
         if(userInfo._id){
             const getFavQuesitons = async () => {
                 try {
-                    let res = await axios.get(`http://localhost:3000/favcart/${userInfo._id}`)
+                    let res = await axios.get(`https://truthormyth.onrender.com/favcart/${userInfo._id}`)
                     let favQuestionIds = res.data
                     // console.log('favQuestionIds',favQuestionIds);
                     const questions = await Promise.all(
                         favQuestionIds.map(async(id) =>{
                             try {
-                                let res = await axios.get(`http://localhost:3000/questions/${id}`)
+                                let res = await axios.get(`https://truthormyth.onrender.com/questions/${id}`)
                                 return res.data
                             } catch (error) {
                                 console.error(error)
@@ -75,13 +75,13 @@ const UserProvider = ({children}) => {
             const isFavorite = favQuestions.some(el => el._id == questionId);
             if (isFavorite) {
                 console.log('deleting favorite');
-                await axios.delete(`http://localhost:3000/favcart/${userInfo._id}/${questionId}`)
+                await axios.delete(`https://truthormyth.onrender.com/favcart/${userInfo._id}/${questionId}`)
                 const prevList = favQuestions.filter((el)=>el._id !== questionId)
                 setFavQuestions(prevList)
             }
             else {
-                await axios.post(`http://localhost:3000/favcart/${userInfo._id}/${questionId}`)
-                const res = await axios.get(`http://localhost:3000/questions/${questionId}`);
+                await axios.post(`https://truthormyth.onrender.com/favcart/${userInfo._id}/${questionId}`)
+                const res = await axios.get(`https://truthormyth.onrender.com/questions/${questionId}`);
                 setFavQuestions(prevList => [...prevList, res.data]);
                 console.log('Adding favoite');
                 // console.log('After Post favQuestions', favQuestions);

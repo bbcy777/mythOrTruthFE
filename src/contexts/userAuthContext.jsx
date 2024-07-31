@@ -14,7 +14,7 @@ const UserAuthContext = ({ children }) => {
         try {
             let res = await axios({
                 method: 'POST',
-                url: 'http://localhost:3000/user/login',
+                url: 'https://truthormyth.onrender.com/user/login',
                 data: formData
             });
         
@@ -30,7 +30,7 @@ const UserAuthContext = ({ children }) => {
         try {
             let res = await axios ({
                 method: 'POST', 
-                url: 'http://localhost:3000/user/signup',
+                url: 'https://truthormyth.onrender.com/user/signup',
                 data: formData
             });
 

@@ -27,7 +27,7 @@ const AddQuestionForm = () => {
 
   const addQuestion = async (formData) => {
     try {
-        await axios.post('http://localhost:3000/questions', formData);
+        await axios.post('https://truthormyth.onrender.com/questions', formData);
     } catch (err) {
         console.error(err);
     }

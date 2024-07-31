@@ -13,7 +13,7 @@ const EditQuestions = () => {
 
   const fetchAll = async ()=> {
     try {
-      let res = await axios.get('http://localhost:3000/questions')
+      let res = await axios.get('https://truthormyth.onrender.com/questions')
       setAllQuestions(res.data)
     } catch (err) {
       console.error(err)
@@ -23,7 +23,7 @@ const EditQuestions = () => {
   const handleDelete = async(id) => {
       //question delete by id route 
     try {
-        await axios.delete(`http://localhost:3000/questions/${id}`);
+        await axios.delete(`https://truthormyth.onrender.com/questions/${id}`);
         fetchAll();
     } catch (err) {
         console.log(err)

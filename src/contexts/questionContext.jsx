@@ -11,7 +11,7 @@ const QuestionProvider = ({children}) => {
     useEffect(()=>{
         const fetchQuestions = async() => {
             try {
-                let res = await axios.get('http://localhost:3000/questions/random10');
+                let res = await axios.get('https://truthormyth.onrender.com/questions/random10');
                 setQuestions(res.data)
             } catch (err) {
                 console.error(err)

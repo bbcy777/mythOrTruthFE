@@ -45,8 +45,8 @@ const EditQuestionForm = ({question, onDelete}) => {
  
     // const filteredForm = filterEmptyValue(formData)
     try {
-        await axios.put(`http://localhost:3000/questions/${question._id}`, formData)
-        console.log(`http://localhost:3000/questions/${question._id}`);
+        await axios.put(`https://truthormyth.onrender.com/questions/${question._id}`, formData)
+        console.log(`https://truthormyth.onrender.com/questions/${question._id}`);
     } catch (err) {
         if (err.response) {
             console.error('Server responded with status code:', err.response.status);
