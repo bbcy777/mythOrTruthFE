@@ -24,6 +24,7 @@ Components:
 - Question with True of False option.
 - Answer with explaination, registered user has option to add question to favorite list. 
 - Result component shows user an overview of 10 questions they took.
+![image](https://github.com/user-attachments/assets/a0818253-7451-4773-80f3-a9a59cbb985e)
 
 - user login and signup forms
 
