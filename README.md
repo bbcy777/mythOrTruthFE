@@ -2,6 +2,9 @@
 
 backend repo: https://github.com/bbcy777/mythOrTruthBE.git
 
+render link: https://mythortruth.onrender.com/
+work on: edit/add not working for now
+
 A simple true or false game to test your knowledge (right now I have only a few environment, energy or health related category). 
 
 Upon page load, one statement will present with true and false button. Once user click a button, answer page will show if they are correct and another button for next question. Registered user can add question(s) to their favorite list in answer page.
